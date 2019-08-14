@@ -12,12 +12,20 @@
             <h3 class="welcome-sentece-1">Push below button!</h3>
         </div>
     </div>
+    @if(Auth::check())
+    <div class="row">
+        <div class="col-md-12 mt-5 welcome-button">
+            <a href="#" class="btn btn-secondary welcome-home">Home</a>
+        </div>
+    </div>
+    @else
     <div class="row">
         <div class="col-md-12 mt-5 welcome-button">
             <a href="/register" class="btn btn-secondary welcome-register">Register</a>
             <a href="/login" class="btn btn-secondary welcome-login">Login</a>
         </div>
     </div>
+    @endif
 </div>
 
 @endsection
