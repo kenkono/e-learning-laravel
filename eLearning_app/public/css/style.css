@@ -1,0 +1,57 @@
+/* fix nav */
+body {
+    padding-top: 3.5rem;
+}
+
+/* welcome-page */
+.welcome-screen {
+    background: -moz-linear-gradient(top, skyblue, #FFF);
+    background: -webkit-linear-gradient(top, skyblue, #FFF);
+    background: linear-gradient(to bottom, skyblue, #FFF);
+}
+
+h1.welcome {
+    text-align: center;
+    font-size: 5em;
+    margin-bottom: 1.2em;   
+}
+
+.welcome-font {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-fa-big {
+    font-size: 18em;
+}
+
+.welcome-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-sentence {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-register {
+    font-size: 2em;
+    margin-right: 10px;
+    width: 200px
+}
+
+.welcome-login {
+    font-size: 2em;
+    margin-left: 10px;
+    width: 200px;
+}
+
+.welcome-sentece-1 {
+    font-size: 2.5em;
+    text-align: center;
+}
