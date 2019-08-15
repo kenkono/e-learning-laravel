@@ -17,10 +17,13 @@ class UserController extends Controller
 
     public function editStore($id)
     {
+<<<<<<< master
         request()->validate([
             'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
         ]);
 
+=======
+>>>>>>> HEAD~3
         $image = request()->file('avatar');
 
         $file = $image->getClientOriginalName();
