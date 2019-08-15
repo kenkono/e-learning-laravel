@@ -76,3 +76,13 @@ h1.welcome {
     font-size: 2em;
 }
 
+/* edit profile */
+.editUser-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editUser-inputFile {
+    padding-left: 7em;
+}
