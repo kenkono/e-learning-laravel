@@ -16,7 +16,6 @@
 
                             @foreach($users as $user)
                                 @if($user->id != Auth::user()->id)
-                        
                                     <div class="list-group-item mb-1"> 
                                         <form class=" d-flex align-items-center" method="post" action="#">
                                             <img src="{{$user->avatar}}" style="width:50px;height:50px;">
