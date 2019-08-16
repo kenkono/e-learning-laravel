@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'] ,function() {
     Route::get('/user/edit/{id}', 'UserController@edit');
     Route::post('/user/storeEdit/{id}', 'UserController@editStore');
     Route::get('/user/followinglist', 'UserController@showFollowing');
+    Route::get('/user/followerslist', 'UserController@showFollowers');
 
     Route::get('/user/follow/{id}', 'UserController@follow');
     Route::get('/user/unfollow/{id}', 'UserController@unfollow');
