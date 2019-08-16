@@ -10,7 +10,7 @@ use App\User;
 class UserController extends Controller
 {
     public function showUsers() {
-        $users = User::paginate(3);;
+        $users = User::where("id" , "!=" , Auth::user()->id)->paginate(10);
 
         return view('users.index', compact('users'));
     }
