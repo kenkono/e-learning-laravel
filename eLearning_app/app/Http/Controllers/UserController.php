@@ -9,6 +9,12 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function showUsers() {
+        $users = User::paginate(3);;
+
+        return view('users.index', compact('users'));
+    }
+
     public function edit($id) {
         $user = User::find($id);
 

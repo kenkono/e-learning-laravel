@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'] ,function() {
     Route::get('/home', 'HomeController@home')->name('home');
 
+    Route::get('/users', 'UserController@showUsers');
     Route::get('/user/edit/{id}', 'UserController@edit');
     Route::post('/user/storeEdit/{id}', 'UserController@editStore');
 });
