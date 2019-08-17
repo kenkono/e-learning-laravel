@@ -17,4 +17,8 @@ class Question extends Model
     public function choices() {
         return $this->hasMany('App\Choice');
     }
+
+    public function explanations() {
+        return $this->hasOne('App\Explanation');
+    }
 }

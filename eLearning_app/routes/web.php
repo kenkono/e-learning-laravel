@@ -35,4 +35,5 @@ Route::group(['middleware' => 'auth'] ,function() {
 
     Route::get('/lessons', 'LessonController@showLessons');
     Route::get('/lessons/content/{id}', 'LessonController@showQuestions');
+    Route::get('/lessons/content/answer', 'LessonController@showAnswers');
 });

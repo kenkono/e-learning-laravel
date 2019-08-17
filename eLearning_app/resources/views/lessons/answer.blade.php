@@ -10,6 +10,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="text-left">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>test</p>
+                                </div>
+                            <div>
+                        <div class="text-left">
                             <h1>Question1</h1>
                             <p>{{$question->question}}</p>
                             <div class="radio">

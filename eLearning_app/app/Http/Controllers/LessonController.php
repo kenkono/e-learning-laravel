@@ -20,4 +20,9 @@ class LessonController extends Controller
 
         return view('lessons.question', compact('lesson', 'questions', 'choices'));
     }
+
+    public function showAnswer() {
+
+        return view('lessons.answer');
+    }
 }
