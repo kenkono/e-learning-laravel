@@ -77,6 +77,12 @@ class UserController extends Controller
         return redirect('home');
     }
 
+    public function showUser($id)
+    {     
+        $user = User::find($id);
+        return view('users.userinfo', compact('user'));
+    }
+
     public function follow($id) {
         Auth::user()->following()->attach($id);
 
