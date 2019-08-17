@@ -49,6 +49,34 @@ class UserController extends Controller
         return view('users.followerslist', compact('users'));
     }
 
+    public function changePassword($id) {
+        $user = User::find($id);
+
+        return view('users.changePassword', compact('user'));
+    }
+
+    public function passwordStore($id)
+    {
+        // password check
+        if(request()->password){
+
+            request()->validate([
+                'password' => ['required', 'min:6', 'confirmed']
+            ]);
+
+            if(Hash::check(request()->current_password, Auth::user()->password)){
+                Auth::user()->update([
+                    'password' => Hash::make(request()->password)
+                ]);
+            } else {
+                return "incorrect password";
+            }
+            
+        }
+
+        return redirect('home');
+    }
+
     public function follow($id) {
         Auth::user()->following()->attach($id);
 
