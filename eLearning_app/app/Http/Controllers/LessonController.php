@@ -12,4 +12,12 @@ class LessonController extends Controller
 
         return view('lessons.index', compact('lessons'));
     }
+
+    public function showQuestions($id) {
+        $lesson = Lesson::find($id);
+        $questions = $lesson->questions();
+        $choices = $questions->choices();
+
+        return view('lessons.question', compact('lesson', 'questions', 'choices'));
+    }
 }

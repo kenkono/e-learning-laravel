@@ -34,4 +34,5 @@ Route::group(['middleware' => 'auth'] ,function() {
     Route::get('/user/unfollow/{id}', 'UserController@unfollow');
 
     Route::get('/lessons', 'LessonController@showLessons');
+    Route::get('/lessons/content/{id}', 'LessonController@showQuestions');
 });
