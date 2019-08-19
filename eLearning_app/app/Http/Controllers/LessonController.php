@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
+use App\Question;
 
 class LessonController extends Controller
 {
@@ -14,10 +15,8 @@ class LessonController extends Controller
     }
 
     public function showQuestions($id) {
-        $lesson = Lesson::find($id);
-        $questions = $lesson->questions();
-        $choices = $questions->choices();
-
-        return view('lessons.question', compact('lesson', 'questions', 'choices'));
+        $lesson = Lesson::with(["questions" , "questions.choices"])->find($id);
+        
+        return view('lessons.question', compact('lesson'));
     }
 }
