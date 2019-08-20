@@ -14,14 +14,12 @@ class LessonController extends Controller
     }
 
     public function showQuestions($id) {
-        $lesson = Lesson::find($id);
-        $questions = $lesson->questions();
-        $choices = $questions->choices();
-
-        return view('lessons.question', compact('lesson', 'questions', 'choices'));
+        $lesson = Lesson::with(["questions" , "questions.choices"])->find($id);
+        
+        return view('lessons.question', compact('lesson'));
     }
 
-    public function showAnswer() {
+    public function showAnswers() {
 
         return view('lessons.answer');
     }
