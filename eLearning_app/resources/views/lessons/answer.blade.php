@@ -26,7 +26,7 @@
                 <br>
                 @endforeach
                 <div class="text-right">
-                    <p><a href="/lessons/content" class="btn btn-primary">Submit</a></p>
+                    <button class="create-post btn btn-primary mt-3" type="submit">Edit</button>
                 </div>
             </div>
         </div>
