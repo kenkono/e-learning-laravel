@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UserTakenCoursesTableSeeder extends Seeder
+class userTakenCoursesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class UserTakenCoursesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('UserTakenCourses')->insert([
+        DB::table('userTakenCourses')->insert([
             ['user_id' => 1,
             'lesson_id' => 1,
             'created_at' => date('Y-m-d H:i:s'),

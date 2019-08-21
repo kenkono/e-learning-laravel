@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
+use Auth;
 
 class LessonController extends Controller
 {
@@ -22,6 +23,8 @@ class LessonController extends Controller
 
     public function showAnswers($id) {
 
+        Auth::user()->lessons_taken()->attach($id);
+
         $answers = request()->question;
         $lesson = Lesson::with(["questions" , "questions.choices"])->find($id);
 
@@ -32,7 +35,6 @@ class LessonController extends Controller
             $question->answer_color  = $is_correct ? "answer-blue" : "answer-red";
             $question->user_answer = $user_answer;
         }
-
         return view('lessons.question', compact('lesson'));
     }
 }

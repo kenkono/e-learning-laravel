@@ -21,4 +21,8 @@ class Question extends Model
     public function explanations() {
         return $this->hasOne('App\Explanation');
     }
+
+    public function answer() {
+        return $this->belongsTo('App\Choice');
+    }
 }

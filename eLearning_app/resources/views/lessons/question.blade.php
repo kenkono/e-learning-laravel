@@ -60,8 +60,14 @@
                         <button class="create-post btn btn-primary mt-3" type="submit">Submit</button>
                     </div>
                     @endif
-
                 </form>
+                @isset($question->correct)
+                <div class="text-right">
+                    <a href="/lessons">
+                        <button class="create-post btn btn-primary mt-3">Back Contents</button>
+                    </a>
+                </div>
+                @endif
             </div>
         </div>
     </div>
