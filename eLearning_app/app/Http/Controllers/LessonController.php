@@ -14,17 +14,25 @@ class LessonController extends Controller
     }
 
     public function showQuestions($id) {
-        $lesson = Lesson::find($id);
-        $questions = $lesson->questions();
-        $choices = $questions->choices();
 
-        return view('lessons.question', compact('lesson', 'questions', 'choices'));
+        $lesson = Lesson::with(["questions" , "questions.choices"])->find($id);
+        
+        return view('lessons.question', compact('lesson'));
     }
 
-    public function showAnswer() {
+    public function showAnswers($id) {
 
-        Auth::user()->lessons_taken()->attach($id);
+        $answers = request()->question;
+        $lesson = Lesson::with(["questions" , "questions.choices"])->find($id);
 
-        return view('lessons.index');
+        foreach($lesson->questions as $question){
+            $user_answer = $answers[$question->id];
+            $is_correct = $question->answer_id == $user_answer; 
+            $question->correct = $question->answer->choice;
+            $question->answer_color  = $is_correct ? "answer-blue" : "answer-red";
+            $question->user_answer = $user_answer;
+        }
+
+        return view('lessons.question', compact('lesson'));
     }
 }
