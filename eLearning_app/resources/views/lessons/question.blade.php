@@ -28,7 +28,7 @@
                                 @isset($question->correct)
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="text-left">
+                                        <div class="text-left"> 
                                             <p>{{$question->explanations->explanation}}</p>
                                         </div>
                                     </div>

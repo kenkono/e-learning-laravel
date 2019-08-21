@@ -6,6 +6,9 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
+        @if ($errors->has('password'))
+          {{$errors->first()}}
+        @endif
         <form action="/user/storePassword/{{$user->id}}" method="POST" class="m-10">
             @csrf
             <div class="form-group">
@@ -20,7 +23,7 @@
             
             <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" class="form-control" name="password_confirm">
+                <input type="password" class="form-control" name="password_confirmation">
             </div> 
             <div class="text-right">
                 <button class="create-post btn btn-primary mt-3" type="submit">Edit</button>

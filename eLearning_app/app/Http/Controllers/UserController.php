@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Auth;
 use App\User;
 
@@ -59,11 +58,9 @@ class UserController extends Controller
     {
         // password check
         if(request()->password){
-
             request()->validate([
                 'password' => ['required', 'min:6', 'confirmed']
             ]);
-
             if(Hash::check(request()->current_password, Auth::user()->password)){
                 Auth::user()->update([
                     'password' => Hash::make(request()->password)
@@ -73,7 +70,6 @@ class UserController extends Controller
             }
             
         }
-
         return redirect('home');
     }
 

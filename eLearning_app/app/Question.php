@@ -23,6 +23,6 @@ class Question extends Model
     }
 
     public function answer() {
-        return $this->hasOne('App\Choice');
+        return $this->belongsTo('App\Choice');
     }
 }
