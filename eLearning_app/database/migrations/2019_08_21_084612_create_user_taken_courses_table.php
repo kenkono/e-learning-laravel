@@ -13,7 +13,7 @@ class CreateUserTakenCoursesTable extends Migration
      */
     public function up()
     {
-        Schema::create('UserTakenCourses', function (Blueprint $table) {
+        Schema::create('userTakenCourses', function (Blueprint $table) {
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('lesson_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -29,6 +29,6 @@ class CreateUserTakenCoursesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('UserTakenCourses');
+        Schema::dropIfExists('userTakenCourses');
     }
 }

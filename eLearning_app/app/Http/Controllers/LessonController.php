@@ -23,6 +23,8 @@ class LessonController extends Controller
 
     public function showAnswer() {
 
-        return view('lessons.answer');
+        Auth::user()->lessons_taken()->attach($id);
+
+        return view('lessons.index');
     }
 }
