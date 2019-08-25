@@ -23,6 +23,7 @@
                 <input type="password" class="form-control" name="password_confirm">
             </div> 
             <div class="text-right">
+            <a href="/home"><button class="create-post btn btn-warning mt-3 mr-3" type="submit">Back</button></a>
                 <button class="create-post btn btn-primary mt-3" type="submit">Edit</button>
             </div>
         </form>

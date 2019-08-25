@@ -63,6 +63,9 @@
                 </form>
                 @isset($question->correct)
                 <div class="text-right">
+                    <a href="/home">
+                        <button class="create-post btn btn-warning mt-3 mr-3" type="submit">HOME</button>
+                    </a>
                     <a href="/lessons">
                         <button class="create-post btn btn-primary mt-3">Back Contents</button>
                     </a>
