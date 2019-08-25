@@ -87,10 +87,15 @@ h1.welcome {
     padding-left: 7em;
 }
 
+/* lesson question */
 .answer-blue {
     color: blue;
 }
 
 .answer-red {
     color: red;
+}
+
+.question-correct {
+    background-color: aquamarine;
 }

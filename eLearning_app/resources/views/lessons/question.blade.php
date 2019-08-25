@@ -10,10 +10,10 @@
                 @csrf
                     @foreach($lesson->questions as $question)
                         @isset($question->correct)
-                        <div class="card">
+                        <div class="card bg-secondary text-white">
                             <div class="card-body">
                                 <div class="text-left">
-                                    <p>The Correct Answer is : {{$question->correct}}</p>
+                                    <h4>The Correct Answer is : {{$question->correct}}</h4>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-left"> 
-                                            <p>{{$question->explanations->explanation}}</p>
+                                            <h5>{{$question->explanations->explanation}}</h5>
                                         </div>
                                     </div>
                                 </div>
