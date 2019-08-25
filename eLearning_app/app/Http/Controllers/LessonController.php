@@ -23,6 +23,7 @@ class LessonController extends Controller
 
     public function showAnswers($id) {
 
+        // user activity
         Auth::user()->lessons_taken()->attach($id);
 
         $answers = request()->question;
