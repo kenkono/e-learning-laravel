@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Auth;
 use App\User;
+use App\Lesson;
 
 class UserController extends Controller
 {
@@ -80,7 +81,8 @@ class UserController extends Controller
     public function showUser($id)
     {     
         $user = User::find($id);
-        return view('users.userinfo', compact('user'));
+        $lessons = Lesson::all();
+        return view('users.userinfo', compact('user', 'lessons'));
     }
 
     public function follow($id) {

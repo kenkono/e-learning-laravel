@@ -13,9 +13,6 @@
                             <p>{{$lesson->explanation}}</p>
                             <div class="text-right">
                                 <p>
-                                    <button class="btn btn-warning">
-                                        {{Auth::user()->course_status($lesson->id)}}
-                                    </button>
                                     <a href="/lessons/content/{{$lesson->id}}" class="btn btn-primary">Learn</a>
                                 </p>
                             </div>
