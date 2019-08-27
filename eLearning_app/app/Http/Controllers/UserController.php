@@ -50,6 +50,17 @@ class UserController extends Controller
         return view('users.followerslist', compact('users'));
     }
 
+    public function showOtherUserFollowing($id){
+        $users = User::find($id)->following()->paginate(10);
+
+        return view('users.followinglistOther', compact('users'));
+    }
+
+    public function showOtherUserFollowers($id){
+        $users = User::find($id)->followers()->paginate(10);
+        return view('users.followerslistOther', compact('users'));
+    }
+
     public function changePassword($id) {
         $user = User::find($id);
 
@@ -82,7 +93,13 @@ class UserController extends Controller
     {     
         $user = User::find($id);
         $lessons = Lesson::all();
-        return view('users.userinfo', compact('user', 'lessons'));
+
+        if($user == Auth::user()) {
+            return view('home', compact('lessons'));
+        } else {
+            return view('users.userinfo', compact('user', 'lessons'));
+        }
+        
     }
 
     public function follow($id) {
