@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
 <<<<<<< master
+<<<<<<< master
 =======
 <<<<<<< master
     <div class="row justify-content-center">
@@ -11,6 +12,9 @@
                 <div class="card-header">Dashboard</div>
 =======
 >>>>>>> HEAD~3
+=======
+
+>>>>>>> HEAD~0
     <div class="row">
         <!-- user profile -->
         <div class="col-sm-4">
@@ -23,10 +27,13 @@
                             </div>
                         </div>
 <<<<<<< master
+<<<<<<< master
 =======
 >>>>>>> HEAD~2
 
 >>>>>>> HEAD~3
+=======
+>>>>>>> HEAD~0
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
