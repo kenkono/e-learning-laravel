@@ -2,10 +2,6 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
     <div class="row">
         <!-- user profile -->
@@ -18,15 +14,84 @@
                                  <img src="{{Auth::user()->avatar}}" style="width:100px;height:100px;">
                             </div>
                         </div>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
+                        <div class="py-2">
+                            <h2>{{ Auth::user()->name }}</h2>
+                        </div>
+                        <div class="py-2">
+                            <p><a href="/user/edit/{{ Auth::user()->id }}" class="btn btn-primary">Edit Profile</a></p>
+                        </div>
+                        <div class="py-2">
+                            <p><a href="/user/edit/password/{{ Auth::user()->id }}" class="btn btn-primary">Change Password</a></p>
+                        </div>
+                        
+
+                        <div class="row mt-15">
+                            <div class="col-sm-6">
+                                <strong><a href="/user/followinglist">{{ Auth::user()->following()->count() }}</a></strong>
+                                <div>following</div>
+                            </div>
+                                <div class="col-sm-6">
+                                    <strong><a href="/user/followerslist">{{ Auth::user()->followers()->count() }}</a></strong>
+                                <div>followers</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- contents -->
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h1 class="home-h1">Learning contents</h1>
+                        <div class="card home-lessons">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="home-details">Manner</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="home-details">1/5</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card home-lessons">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="home-details">Manner</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="home-details">1/5</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card home-lessons">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="home-details">Manner</div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="home-details">1/5</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a href="/lessons" class="btn btn-primary home-selectContents">Select Contents</a></p>
+                    </div>
+                </div>    
             </div>
         </div>
     </div>
