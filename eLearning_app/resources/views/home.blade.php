@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+
     <div class="row">
         <!-- user profile -->
         <div class="col-sm-4">

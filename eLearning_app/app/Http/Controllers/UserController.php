@@ -20,7 +20,6 @@ class UserController extends Controller
         request()->validate([
             'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
         ]);
-
         $image = request()->file('avatar');
 
         $file = $image->getClientOriginalName();
