@@ -86,3 +86,8 @@ h1.welcome {
 .editUser-inputFile {
     padding-left: 7em;
 }
+
+/* change password */
+.changePassword-error {
+    color: red;
+}
