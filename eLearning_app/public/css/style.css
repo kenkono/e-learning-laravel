@@ -60,3 +60,34 @@ h1.welcome {
     font-size: 2.5em;
     text-align: center;
 }
+
+/* home */
+
+.home-h1 {
+    font-size: 3.25rem;
+    padding: 0.5em 0
+}
+
+.home-lessons {
+    margin: 2em;
+    background-color: #C4C4C4;
+}
+
+.home-details {
+    font-size: 2em;
+}
+
+.home-selectContents {
+    font-size: 2em;
+}
+
+/* edit profile */
+.editUser-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editUser-inputFile {
+    padding-left: 7em;
+}
