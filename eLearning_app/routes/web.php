@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'] ,function() {
     Route::get('/user/followerslist', 'UserController@showFollowers');
     Route::get('/user/edit/password/{id}', 'UserController@changePassword');
     Route::post('/user/storePassword/{id}', 'UserController@passwordStore');
+    Route::get('/user/profile/{id}', 'UserController@showUser');
 
     Route::get('/user/follow/{id}', 'UserController@follow');
     Route::get('/user/unfollow/{id}', 'UserController@unfollow');
