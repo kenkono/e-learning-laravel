@@ -91,3 +91,12 @@ h1.welcome {
 .editUser-inputFile {
     padding-left: 7em;
 }
+
+/* lesson index */
+.lesson-index-explanation {
+    font-size: 1.3em;
+}
+
+.question-show {
+    font-size: 1.3em;
+}
