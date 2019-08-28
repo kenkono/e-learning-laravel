@@ -38,4 +38,20 @@ class LessonController extends Controller
         }
         return view('lessons.question', compact('lesson'));
     }
+
+    public function newLessons() {
+
+        return view('lessons.newLesson');
+    }
+
+    public function storeNewLessons() {
+
+        $lesson = new Lesson();
+        $lesson->title = request()->lesson_title;
+        $lesson->explanation = request()->lesson_description;
+
+        $lesson->save();
+
+        return redirect('lessons');
+    }
 }

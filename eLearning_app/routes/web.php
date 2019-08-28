@@ -36,6 +36,16 @@ Route::group(['middleware' => 'auth'] ,function() {
     Route::get('/user/unfollow/{id}', 'UserController@unfollow');
 
     Route::get('/lessons', 'LessonController@showLessons');
-    Route::get('/lessons/content/{id}', 'LessonController@showQuestions');
+    // only accept number at {id}
+    Route::get('/lessons/content/{id}', 'LessonController@showQuestions')->where('id' , '[0-9]+');
     Route::post('/lessons/content/answer/{id}', 'LessonController@showAnswers');
+
+    Route::get('/lessons/content/new', 'LessonController@newLessons');
+    Route::post('/lesson/content/storeLesson', 'LessonController@storeNewLessons');
+
+    Route::get('/lesson/{id}/questions', 'QuestionController@show')->where('id' , '[0-9]+');
+
+    Route::get('/lesson/{id}/questions/create', 'QuestionController@new')->where('id' , '[0-9]+');
+    Route::post('/lesson/{id}/questions/storeQuestion/', 'QuestionController@store')->where('id' , '[0-9]+');
+
 });

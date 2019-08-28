@@ -8,7 +8,7 @@
                 <h1>{{$lesson->title}}</h1>
                 <form action="/lessons/content/answer/{{$lesson->id}}" method="POST" class="m-10">
                 @csrf
-                    @foreach($lesson->questions as $question)
+                    @foreach($lesson->questions as $index => $question)
                         @isset($question->correct)
                         <div class="card">
                             <div class="card-body">
@@ -22,7 +22,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="text-left">
-                                <h1>Question</h1>
+                                <h1>Question #{{$index + 1}}</h1>
                                 <p class="question-show">{{$question->question}}</p>
 
                                 @isset($question->correct)
