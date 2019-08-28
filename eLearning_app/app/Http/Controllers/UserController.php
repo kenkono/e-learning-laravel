@@ -47,6 +47,11 @@ class UserController extends Controller
         return view('users.followinglist', compact('users'));
     }
 
+    public function showFollowers(){
+        $users = Auth::user()->followers()->paginate(10);
+        return view('users.followerslist', compact('users'));
+    }
+
     public function follow($id) {
         Auth::user()->following()->attach($id);
 
