@@ -40,4 +40,22 @@ class UserController extends Controller
 
         return redirect('home');
     }
+
+    public function showFollowing(){
+        $users = Auth::user()->following()->paginate(10);
+
+        return view('users.followinglist', compact('users'));
+    }
+
+    public function follow($id) {
+        Auth::user()->following()->attach($id);
+
+        return redirect()->back();
+    }
+
+    public function unfollow($id) {
+        Auth::user()->following()->detach($id);
+
+        return redirect()->back();
+    }
 }
