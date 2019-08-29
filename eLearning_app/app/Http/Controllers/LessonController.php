@@ -54,4 +54,25 @@ class LessonController extends Controller
 
         return redirect('lessons');
     }
+
+    public function edit($id) {
+        $lesson = Lesson::find($id);
+
+        return view('lessons.edit', compact('lesson'));
+    }
+
+    public function storeEdit($id) {
+        $lesson = Lesson::find($id)->update([
+            'title' => request()->lesson_title,
+            'explanation' => request()->lesson_description,
+        ]);
+
+        return redirect('lessons');
+    }
+
+    public function delete($id) {
+        Lesson::find($id)->delete();
+        
+        return redirect('lessons');
+    }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
+use App\Question;
+use App\Choice;
 
 class QuestionController extends Controller
 {
@@ -28,6 +30,10 @@ class QuestionController extends Controller
             "answer_id" => "0",
         ]);
 
+        $question->explanations()->create([
+            "explanation" => request()->explanation,
+        ]);
+
         foreach(request()->choices as $key => $choice) {
             $choice = $question->choices()->create([
                 "choice" => $choice,
@@ -40,5 +46,38 @@ class QuestionController extends Controller
         }
 
         return redirect('lesson/'.$id.'/questions');
+    }
+
+    public function edit($id) {
+        $question = Question::find($id);
+
+        return view('questions.edit', compact('question'));
+    }
+
+    public function storeEdit($id) {
+
+        $question = Question::find($id);
+        $question->update([
+            "question" => request()->question,
+            "answer_id" => request()->answer_id,
+        ]);
+
+        $question->explanations()->update([
+            "explanation" => request()->explanation,
+        ]);
+
+        foreach(request()->choices as $key => $choice) {
+            Choice::find($key)->update([
+                "choice" => $choice
+            ]);
+        }
+
+        return redirect('lesson/'.$id.'/questions');
+    }
+
+    public function delete($id) {
+         Question::find($id)->delete();
+        
+        return redirect()->back();
     }
 }

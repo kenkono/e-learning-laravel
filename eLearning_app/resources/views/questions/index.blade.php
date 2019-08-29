@@ -18,6 +18,12 @@
                             <h1>Question #{{$index + 1}}</h1>
                             <p>{{$question->question}}</p>
                             <div class="text-right">
+                                <p>
+                                    @if(Auth::user()->is_admin)
+                                    <a href="/lessons/{{$question->id}}/question/edit" class="btn btn-danger">Edit</a>
+                                    <a href="/lessons/{{$question->id}}/question/delete" class="btn btn-danger">Delete</a>
+                                    @endif
+                                </p>
                             </div>
                         </div>
                     </div>

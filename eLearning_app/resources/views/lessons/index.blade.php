@@ -20,6 +20,10 @@
                                 <p>
                                     <a href="/lesson/{{$lesson->id}}/questions" class="btn btn-primary">Show Question</a>
                                     <a href="/lessons/content/{{$lesson->id}}" class="btn btn-primary">Learn</a>
+                                    @if(Auth::user()->is_admin)
+                                    <a href="/lessons/content/{{$lesson->id}}/edit" class="btn btn-danger">Edit</a>
+                                    <a href="/lessons/content/{{$lesson->id}}/delete" class="btn btn-danger">Delete</a>
+                                    @endif
                                 </p>
                             </div>
                         </div>

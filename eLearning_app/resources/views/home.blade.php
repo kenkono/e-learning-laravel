@@ -65,6 +65,9 @@
                             </div>
                         </div>
                         @endforeach
+                        <div class="d-flex justify-content-center">
+                            {{ $lessons->links() }}
+                        </div>
 
                         <p><a href="/lessons" class="btn btn-primary home-selectContents">Select Contents</a></p>
                     </div>

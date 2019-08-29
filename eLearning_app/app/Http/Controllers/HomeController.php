@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function home()
     {
-        $lessons = Lesson::all();
+        $lessons = Lesson::paginate(3);
 
         return view('home', compact('lessons'));
     }
