@@ -8,7 +8,7 @@
             @if(Auth::user()->is_admin)
             <div class="m-2">
                 <a href="/lesson/{{ $lesson->id }}/questions/create" class="btn btn-primary">Add Question</a>
-                <a href="/lessons" class="btn btn-primary">Back</a>
+                <a href="/lessons" class="btn btn-warning">Back</a>
             </div>
             @endif
             @foreach($lesson->questions as $index => $question)
@@ -20,7 +20,7 @@
                             <div class="text-right">
                                 <p>
                                     @if(Auth::user()->is_admin)
-                                    <a href="/lessons/{{$question->id}}/question/edit" class="btn btn-danger">Edit</a>
+                                    <a href="/lessons/{{$question->id}}/question/edit" class="btn btn-success">Edit</a>
                                     <a href="/lessons/{{$question->id}}/question/delete" class="btn btn-danger">Delete</a>
                                     @endif
                                 </p>

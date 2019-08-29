@@ -100,3 +100,12 @@ h1.welcome {
 .question-show {
     font-size: 1.3em;
 }
+
+/* lesson question */
+.answer-blue {
+    color: blue;
+}
+
+.answer-red {
+    color: red;
+}

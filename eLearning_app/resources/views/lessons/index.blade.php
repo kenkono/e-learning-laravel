@@ -7,7 +7,7 @@
             <div class="col-sm-12">
             @if(Auth::user()->is_admin)
             <div class="m-2">
-                <a href="/lessons/content/new" class="btn btn-primary">New Lesson</a>
+                <a href="/lessons/content/new" class="btn btn-primary">Create New Lesson</a>
             </div>
             @endif
             @foreach($lessons as $lesson)
@@ -18,10 +18,10 @@
                             <p class="lesson-index-explanation">{{$lesson->explanation}}</p>
                             <div class="text-right">
                                 <p>
-                                    <a href="/lesson/{{$lesson->id}}/questions" class="btn btn-primary">Show Question</a>
                                     <a href="/lessons/content/{{$lesson->id}}" class="btn btn-primary">Learn</a>
+                                    <a href="/lesson/{{$lesson->id}}/questions" class="btn btn-secondary">Show Question</a>
                                     @if(Auth::user()->is_admin)
-                                    <a href="/lessons/content/{{$lesson->id}}/edit" class="btn btn-danger">Edit</a>
+                                    <a href="/lessons/content/{{$lesson->id}}/edit" class="btn btn-success">Edit</a>
                                     <a href="/lessons/content/{{$lesson->id}}/delete" class="btn btn-danger">Delete</a>
                                     @endif
                                 </p>
