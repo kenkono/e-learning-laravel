@@ -20,7 +20,7 @@
 
             <div class="text-right">
                 <a href="/lessons" class="create-post btn btn-warning mt-3 mr-3">Back</a>
-                <button class="create-post btn btn-primary mt-3" type="submit">Edit</button>
+                <button class="create-post btn btn-primary mt-3" type="submit">Submit</button>
             </div>
         </form>
     </div>

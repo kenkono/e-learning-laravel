@@ -11,7 +11,6 @@ class QuestionController extends Controller
 {
     public function show($id) {
         $lesson = Lesson::find($id);
-
         return view('questions.index', compact('lesson'));
     }
 
@@ -72,7 +71,7 @@ class QuestionController extends Controller
             ]);
         }
 
-        return redirect('lesson/'.$id.'/questions');
+        return redirect('lesson/'.$question->lesson->id.'/questions');
     }
 
     public function delete($id) {

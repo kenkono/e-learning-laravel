@@ -8,6 +8,22 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="login-default">
+                                <h3 class="mb-0">Admin</h3>
+                                <p class="mb-0">E-Mail: test1@test.com</p>
+                                <p>Password: hogehoge</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="login-default">
+                                <h3 class="mb-0">Normal</h3>
+                                <p class="mb-0">E-Mail: test2@test.com</p>
+                                <p>Password: hogehoge</p>
+                            </div>
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -53,6 +69,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
+                            <p>Only push "Login" if you want admin.</p>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>

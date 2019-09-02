@@ -10,7 +10,7 @@ class Question extends Model
 
     public function lesson() {
 
-        return $this->belongTo('App\Lesson');
+        return $this->belongsTo('App\Lesson');
 
     }
 

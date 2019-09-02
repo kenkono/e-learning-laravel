@@ -10,7 +10,7 @@ class Explanation extends Model
 
     public function explanation() {
 
-        return $this->belongTo('App\Question');
+        return $this->belongsTo('App\Question');
 
     }
 }

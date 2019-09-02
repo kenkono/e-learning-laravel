@@ -10,13 +10,9 @@
                 @csrf
                     @foreach($lesson->questions as $index => $question)
                         @isset($question->correct)
-                        <div class="card">
-                            <div class="card-body">
                                 <div class="text-left">
-                                    <p>The Correct Answer is : {{$question->correct}}</p>
+                                    <p class="question-correct-answer">#{{$index + 1}} The Correct Answer is : {{$question->correct}}</p>
                                 </div>
-                            </div>
-                        </div>
                         @endif
 
                     <div class="card">
@@ -26,12 +22,9 @@
                                 <p class="question-show">{{$question->question}}</p>
 
                                 @isset($question->correct)
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="text-left"> 
-                                            <p>{{$question->explanations->explanation}}</p>
-                                        </div>
-                                    </div>
+                                <div class="explanation-block">
+                                    <h3>Explanation</h3>
+                                    <p class="question-correct-answer">{{$question->explanations->explanation}}</p>
                                 </div>
                                 @endif
 
@@ -43,7 +36,9 @@
                                                 type="radio" 
                                                 name="question[{{$question->id}}]" 
                                                 value="{{$choice->id}}"
-                                                {{ $question->user_answer == $choice->id ? "checked" : ""}}
+                                                @isset($question->correct)
+                                                    {{ $question->user_answer == $choice->id ? "checked" : "disabled"}}
+                                                @endif
                                             >
                                                 {{$choice->choice}}
                                         </label>

@@ -56,6 +56,9 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a href="/home" class="nav-link">{{ Auth::user()->name }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/users" class="nav-link">ALL USERS</a>
                             </li>
                             <li class="nav-item">

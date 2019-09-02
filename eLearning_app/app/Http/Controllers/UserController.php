@@ -24,16 +24,18 @@ class UserController extends Controller
 
     public function editStore($id)
     {
-        $image = request()->file('avatar');
-
-        $file = $image->getClientOriginalName();
-
-        $image->storeAs('public/images' , $file);
+        if(request()->file('avatar')) {
+            $image = request()->file('avatar');
+            $file = $image->getClientOriginalName();
+            $image->storeAs('public/images' , $file);
+            $user = Auth::user()->update([
+                'avatar' => '/storage/images/'.$file,
+            ]);
+        }
 
         $user = Auth::user()->update([
             'name' => request()->name,
             'email' => request()->email,
-            'avatar' => '/storage/images/'.$file,
         ]);
 
         return redirect('home');
@@ -92,13 +94,9 @@ class UserController extends Controller
     public function showUser($id)
     {     
         $user = User::find($id);
-        $lessons = Lesson::all();
-
-        if($user == Auth::user()) {
-            return view('home', compact('lessons'));
-        } else {
-            return view('users.userinfo', compact('user', 'lessons'));
-        }
+        $lessons = Lesson::paginate(3);
+        
+        return view('home', compact('user', 'lessons'));
         
     }
 
