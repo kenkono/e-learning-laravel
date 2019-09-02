@@ -18,6 +18,11 @@
                         <div class="py-2">
                             <h2>{{ Auth::user()->name }}</h2>
                         </div>
+                        <div class="py-2 home-admin-show">
+                        @if(Auth::user()->is_admin)
+                            <h3>Admin</h3>
+                        @endif
+                        </div>
                         <div class="py-2">
                             <p><a href="/user/edit/{{ Auth::user()->id }}" class="btn btn-primary">Edit Profile</a></p>
                         </div>

@@ -91,6 +91,10 @@ h1.welcome {
     min-height: 500px;
 }
 
+.home-admin-show {
+    margin-bottom: 1.3em;
+}
+
 /* edit profile */
 .editUser-avatar {
     display: flex;
