@@ -106,6 +106,11 @@ h1.welcome {
     padding-left: 7em;
 }
 
+.edit-user-error {
+    color: red;
+    margin-left: 10em;
+}
+
 /* lesson index */
 .lesson-index-explanation {
     font-size: 1.3em;

@@ -2,6 +2,18 @@
 
 @section('content')
 
+<div class="edit-user-error">
+@if ($errors->has('avatar'))
+    <h4 class="">{{$errors->first('avatar')}}</h4>
+@endif
+@if ($errors->has('name'))
+    <h4 class="">{{$errors->first('name')}}</h4>
+@endif
+@if ($errors->has('email'))
+    <h4 class="">{{$errors->first('email')}}</h4>
+@endif
+</div>
+
 <form action="/user/storeEdit/{{$user->id}}" method="POST" enctype="multipart/form-data" class="m-10">
 @csrf
     <div class="row mt-5">
