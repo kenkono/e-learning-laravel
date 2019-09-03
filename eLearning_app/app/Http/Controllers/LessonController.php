@@ -45,6 +45,10 @@ class LessonController extends Controller
     }
 
     public function storeNewLessons() {
+        request()->validate([
+            'lesson_title' => ['required'],
+            'lesson_description' => ['required'],
+        ]);
 
         $lesson = new Lesson();
         $lesson->title = request()->lesson_title;
@@ -62,6 +66,11 @@ class LessonController extends Controller
     }
 
     public function storeEdit($id) {
+        request()->validate([
+            'lesson_title' => ['required'],
+            'lesson_description' => ['required'],
+        ]);
+
         $lesson = Lesson::find($id)->update([
             'title' => request()->lesson_title,
             'explanation' => request()->lesson_description,

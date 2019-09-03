@@ -106,7 +106,7 @@ h1.welcome {
     padding-left: 7em;
 }
 
-.edit-user-error {
+.edit-error-sentence {
     color: red;
     margin-left: 10em;
 }
@@ -139,5 +139,10 @@ h1.welcome {
 
 /* password page */
 .changePassword-error-message {
+    color: red;
+}
+
+/* edit and new lesson */
+.new-lesson-error-sentence {
     color: red;
 }

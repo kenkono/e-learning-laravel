@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="edit-user-error">
+<div class="edit-error-sentence">
 @if ($errors->has('avatar'))
     <h4 class="">{{$errors->first('avatar')}}</h4>
 @endif
