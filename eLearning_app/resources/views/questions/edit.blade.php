@@ -36,14 +36,15 @@
             <p>Please check the correct answer.</p>
             @foreach($question->choices as $key => $choice)
                 <div class="form-group">
+                <label>
                     <input type="radio" 
                            name="answer_id" 
                            value={{$choice->id}}
                            {{$question->answer_id == $choice->id ? "checked" : "" }}>
-                    <label>Choice{{$key + 1}}</label>
+                    Choice{{$key + 1}}
+                </label>
                     <input type="text" class="form-control" name="choices[{{$choice->id}}]" value="{{$choice->choice}}">
                 </div>
-            </input>
             @endforeach
 
             <div class="text-right">

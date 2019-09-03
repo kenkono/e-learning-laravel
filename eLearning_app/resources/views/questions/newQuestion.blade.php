@@ -36,11 +36,12 @@
             <p>Please check the correct answer.</p>
             @foreach(range(1 , 3) as $value)
                 <div class="form-group">
+                <label>
                     <input type="radio" name="answer_id" value={{$value}}>
-                    <label>Choice{{$value}}</label>
+                    Choice{{$value}}
+                </label>
                     <input type="text" class="form-control" name="choices[]">
                 </div>
-            </input>
             @endforeach
 
             <div class="text-right">
