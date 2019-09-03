@@ -131,3 +131,8 @@ h1.welcome {
 .explanation-block {
     background-color: skyblue;
 }
+
+/* password page */
+.changePassword-error-message {
+    color: red;
+}
