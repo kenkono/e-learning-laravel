@@ -27,6 +27,11 @@ class LessonsTableSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             ],
+            ['title' => 'IT',
+            'explanation' => "Technology changes the world quickly.So let's learn the standard IT knowledge.",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ],
             ]);
     }
     

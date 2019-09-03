@@ -11,7 +11,7 @@
                     @foreach($lesson->questions as $index => $question)
                         @isset($question->correct)
                                 <div class="text-left">
-                                    <p class="question-correct-answer">#{{$index + 1}} The Correct Answer is : {{$question->correct}}</p>
+                                    <p class="question-correct-answer">#{{$index + 1}} The Correct Answer is : <u><strong>{{$question->correct}}</strong></u></p>
                                 </div>
                         @endif
 

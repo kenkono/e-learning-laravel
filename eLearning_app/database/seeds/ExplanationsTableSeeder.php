@@ -57,6 +57,21 @@ class ExplanationsTableSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             ],
+            ['explanation' => "There are many reasons about slow. One of the main reason is the shortage of the memory.",
+            'question_id' => 10,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            ['explanation' => "Example about SaaS: Google Apps, Salesforce",
+            'question_id' => 11,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            ['explanation' => "One of the job of a cookie is to keep a user logged in as they browse from page to page.",
+            'question_id' => 12,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }
