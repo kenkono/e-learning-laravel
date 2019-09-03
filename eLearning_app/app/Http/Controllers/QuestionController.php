@@ -7,6 +7,8 @@ use App\Lesson;
 use App\Question;
 use App\Choice;
 
+use Validator;
+
 class QuestionController extends Controller
 {
     public function show($id) {
@@ -22,6 +24,18 @@ class QuestionController extends Controller
     }
 
     public function store($id) {
+
+        request()->validate([
+            'question' => ['required'],
+            'explanation' => ['required'],
+            'answer_id' => ['required'],
+        ]);
+        foreach(request()->choices as $key => $choice) {
+            $data = ['choice' => $choice];
+            Validator::make($data,[
+                'choice' => ['required'],
+            ])->validate();
+        }
 
         $lesson = Lesson::find($id);
         $question = $lesson->questions()->create([
@@ -54,6 +68,17 @@ class QuestionController extends Controller
     }
 
     public function storeEdit($id) {
+        request()->validate([
+            'question' => ['required'],
+            'explanation' => ['required'],
+            'answer_id' => ['required'],
+        ]);
+        foreach(request()->choices as $key => $choice) {
+            $data = ['choice' => $choice];
+            Validator::make($data,[
+                'choice' => ['required'],
+            ])->validate();
+        }
 
         $question = Question::find($id);
         $question->update([
