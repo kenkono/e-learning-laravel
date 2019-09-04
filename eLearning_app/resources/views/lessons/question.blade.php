@@ -28,7 +28,7 @@
                                 </div>
                                 @endif
 
-                                @foreach($question->choices as $choice)
+                                @foreach($question->choices as $index => $choice)
                                     <div 
                                         class="radio {{ $question->user_answer == $choice->id ? $question->answer_color : '' }}">
                                         <label>
@@ -38,6 +38,8 @@
                                                 value="{{$choice->id}}"
                                                 @isset($question->correct)
                                                     {{ $question->user_answer == $choice->id ? "checked" : "disabled"}}
+                                                @else
+                                                    {{ $index == 0 ? "checked" : "" }}
                                                 @endif
                                             >
                                                 {{$choice->choice}}

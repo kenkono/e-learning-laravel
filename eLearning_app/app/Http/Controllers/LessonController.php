@@ -24,13 +24,22 @@ class LessonController extends Controller
     public function showAnswers($id) {
 
         // user activity
-        Auth::user()->lessons_taken()->attach($id);
+        $courseTaken = Auth::user()->lessons_taken()->create([
+            'user_id' => Auth::user()->id,
+            'lesson_id' => $id
+        ]);
 
         $answers = request()->question;
         $lesson = Lesson::with(["questions" , "questions.choices"])->find($id);
 
         foreach($lesson->questions as $question){
+            // the number of correct answer
             $user_answer = $answers[$question->id];
+            $courseTaken->userAnswers()->create([
+                'choice_id' => $user_answer,
+                'question_id' => $question->id
+            ]);
+
             $is_correct = $question->answer_id == $user_answer; 
             $question->correct = $question->answer->choice;
             $question->answer_color  = $is_correct ? "answer-blue" : "answer-red";
