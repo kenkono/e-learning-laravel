@@ -59,7 +59,7 @@
                                 <a href="/home" class="nav-link">{{ Auth::user()->name }}</a>
                             </li>
                             <li class="nav-item">
-                                <a href="/users" class="nav-link">ALL USERS</a>
+                                <a href="/user" class="nav-link">ALL USERS</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"

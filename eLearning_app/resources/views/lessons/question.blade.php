@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1>{{$lesson->title}}</h1>
-                <form action="/lessons/content/answer/{{$lesson->id}}" method="POST" class="m-10">
+                <form action="/lesson/content/answer/{{$lesson->id}}" method="POST" class="m-10">
                 @csrf
                     @foreach($lesson->questions as $index => $question)
                         @isset($question->correct)
@@ -63,7 +63,7 @@
                     <a href="/home">
                         <button class="create-post btn btn-warning mt-3 mr-3" type="submit">HOME</button>
                     </a>
-                    <a href="/lessons">
+                    <a href="/lesson">
                         <button class="create-post btn btn-primary mt-3">Back Contents</button>
                     </a>
                 </div>

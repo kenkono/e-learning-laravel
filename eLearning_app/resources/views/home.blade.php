@@ -125,7 +125,7 @@
                         </div>
 
                         @if($user == Auth::user())
-                        <a href="/lessons" class="btn btn-primary home-selectContents">
+                        <a href="/lesson" class="btn btn-primary home-selectContents">
                             Select Contents
                         </a>
                         @endif

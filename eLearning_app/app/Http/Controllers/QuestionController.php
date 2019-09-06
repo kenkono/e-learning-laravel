@@ -9,6 +9,8 @@ use App\Choice;
 
 use Validator;
 
+use App\Http\Requests\QuestionRequest;
+
 class QuestionController extends Controller
 {
     public function show($id) {
@@ -23,14 +25,9 @@ class QuestionController extends Controller
         return view('questions.newQuestion', compact('lesson'));
     }
 
-    public function store($id) {
+    public function store(QuestionRequest $request, $id) {
 
-        request()->validate([
-            'question' => ['required'],
-            'explanation' => ['required'],
-            'answer_id' => ['required'],
-        ]);
-        foreach(request()->choices as $key => $choice) {
+        foreach($request->choices as $key => $choice) {
             $data = ['choice' => $choice];
             Validator::make($data,[
                 'choice' => ['required'],
@@ -38,21 +35,22 @@ class QuestionController extends Controller
         }
 
         $lesson = Lesson::find($id);
+
         $question = $lesson->questions()->create([
-            "question" => request()->question,
+            "question" => $request->question,
             "answer_id" => "0",
         ]);
 
         $question->explanations()->create([
-            "explanation" => request()->explanation,
+            "explanation" => $request->explanation,
         ]);
 
-        foreach(request()->choices as $key => $choice) {
+        foreach($request->choices as $key => $choice) {
             $choice = $question->choices()->create([
                 "choice" => $choice,
             ]);
 
-            if($key + 1 == request()->answer_id){
+            if($key + 1 == $request->answer_id){
                 $question->answer_id = $choice->id;
                 $question->save();
             }
@@ -67,13 +65,8 @@ class QuestionController extends Controller
         return view('questions.edit', compact('question'));
     }
 
-    public function storeEdit($id) {
-        request()->validate([
-            'question' => ['required'],
-            'explanation' => ['required'],
-            'answer_id' => ['required'],
-        ]);
-        foreach(request()->choices as $key => $choice) {
+    public function storeEdit(QuestionRequest $request, $id) {
+        foreach($request->choices as $key => $choice) {
             $data = ['choice' => $choice];
             Validator::make($data,[
                 'choice' => ['required'],
@@ -82,15 +75,15 @@ class QuestionController extends Controller
 
         $question = Question::find($id);
         $question->update([
-            "question" => request()->question,
-            "answer_id" => request()->answer_id,
+            "question" => $request->question,
+            "answer_id" => $request->answer_id,
         ]);
 
         $question->explanations()->update([
-            "explanation" => request()->explanation,
+            "explanation" => $request->explanation,
         ]);
 
-        foreach(request()->choices as $key => $choice) {
+        foreach($request->choices as $key => $choice) {
             Choice::find($key)->update([
                 "choice" => $choice
             ]);
