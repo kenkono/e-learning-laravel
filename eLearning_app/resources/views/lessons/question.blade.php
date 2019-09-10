@@ -23,7 +23,7 @@
                         <div class="card-body">
                             <div class="text-left">
                                 <h1>Question</h1>
-                                <p>{{$question->question}}</p>
+                                <p class="question-show">{{$question->question}}</p>
 
                                 @isset($question->correct)
                                 <div class="card">

@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <div class="text-left">
                             <h1>{{$lesson->title}}</h1>
-                            <p>{{$lesson->explanation}}</p>
+                            <p class="lesson-index-explanation">{{$lesson->explanation}}</p>
                             <div class="text-right">
                                 <p>
                                     <a href="/lessons/content/{{$lesson->id}}" class="btn btn-primary">Learn</a>

@@ -5,7 +5,7 @@
 
     <div class="row">
         <!-- user profile -->
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div class="card user-profile">
                 <div class="card-body">
                     <div class="text-center">
@@ -42,7 +42,7 @@
         </div>
 
         <!-- contents -->
-        <div class="col-sm-8">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
                     <div class="text-center">
