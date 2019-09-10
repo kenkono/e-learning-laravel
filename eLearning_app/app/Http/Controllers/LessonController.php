@@ -53,15 +53,15 @@ class LessonController extends Controller
             $question->user_answer = $user_answer;
         }
 
-        $twitter = new TwitterOAuth(env('TWITTER_CLIENT_ID'),
-            env('TWITTER_CLIENT_SECRET'),
-            env('TWITTER_CLIENT_ID_ACCESS_TOKEN'),
-            env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET')
-        );
+        // $twitter = new TwitterOAuth(env('TWITTER_CLIENT_ID'),
+        //     env('TWITTER_CLIENT_SECRET'),
+        //     env('TWITTER_CLIENT_ID_ACCESS_TOKEN'),
+        //     env('TWITTER_CLIENT_ID_ACCESS_TOKEN_SECRET')
+        // );
 
-        $twitter->post("statuses/update", [
-            "status" => 'My score is '.$answer.'/'.$total.' for Lesson '.$lesson->title, 
-        ]);
+        // $twitter->post("statuses/update", [
+        //     "status" => 'My score is '.$answer.'/'.$total.' for Lesson '.$lesson->title, 
+        // ]);
         
         return view('lessons.question', compact('lesson'));
     }

@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     public function lessons_taken(){
-        return $this->hasMany("App\UserTakenCourse" , 'lesson_id');
+        return $this->hasMany("App\UserTakenCourse" , 'user_id');
     }
 
     // public function course_status($id)
