@@ -12,7 +12,9 @@
                             <h1>{{$lesson->title}}</h1>
                             <p>{{$lesson->explanation}}</p>
                             <div class="text-right">
-                                <p><a href="/lessons/content/{{$lesson->id}}" class="btn btn-primary">Learn</a></p>
+                                <p>
+                                    <a href="/lessons/content/{{$lesson->id}}" class="btn btn-primary">Learn</a>
+                                </p>
                             </div>
                         </div>
                     </div>

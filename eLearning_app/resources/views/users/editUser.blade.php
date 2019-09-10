@@ -30,6 +30,7 @@
         <div class="col-md-2"></div>
     </div>
     <div class="text-center">
+        <a href="/home"><button class="create-post btn btn-warning mt-3 mr-3" type="submit">Back</button></a>
         <button class="create-post btn btn-primary mt-3" type="submit">Edit</button>
     </div>
 </form>

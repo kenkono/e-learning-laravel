@@ -61,6 +61,11 @@ h1.welcome {
     text-align: center;
 }
 
+/* login */
+.login-email {
+    margin: 0 auto;
+}
+
 /* home */
 
 .home-h1 {

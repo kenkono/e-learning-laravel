@@ -6,28 +6,71 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1>{{$lesson->title}}</h1>
-                @foreach($lesson->questions as $question)
-                <div class="card">
-                    <div class="card-body">
-                        <div class="text-left">
-                            <h1>Question</h1>
-                            <p>{{$question->question}}</p>
-                            @foreach($question->choices as $choice)
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="choices[]" >
-                                            {{$choice->choice}}
-                                    </label>
+                <form action="/lessons/content/answer/{{$lesson->id}}" method="POST" class="m-10">
+                @csrf
+                    @foreach($lesson->questions as $question)
+                        @isset($question->correct)
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="text-left">
+                                    <p>The Correct Answer is : {{$question->correct}}</p>
                                 </div>
-                            @endforeach
+                            </div>
+                        </div>
+                        @endif
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-left">
+                                <h1>Question</h1>
+                                <p>{{$question->question}}</p>
+
+                                @isset($question->correct)
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="text-left"> 
+                                            <p>{{$question->explanations->explanation}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+
+                                @foreach($question->choices as $choice)
+                                    <div 
+                                        class="radio {{ $question->user_answer == $choice->id ? $question->answer_color : '' }}">
+                                        <label>
+                                            <input 
+                                                type="radio" 
+                                                name="question[{{$question->id}}]" 
+                                                value="{{$choice->id}}"
+                                                {{ $question->user_answer == $choice->id ? "checked" : ""}}
+                                            >
+                                                {{$choice->choice}}
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br>
-                @endforeach
+                    <br>
+                    @endforeach
+
+                    @if(!isset($question->correct))
+                    <div class="text-right">
+                        <button class="create-post btn btn-primary mt-3" type="submit">Submit</button>
+                    </div>
+                    @endif
+                </form>
+                @isset($question->correct)
                 <div class="text-right">
-                    <p><a href="/lessons/content" class="btn btn-primary">Submit</a></p>
+                    <a href="/home">
+                        <button class="create-post btn btn-warning mt-3 mr-3" type="submit">HOME</button>
+                    </a>
+                    <a href="/lessons">
+                        <button class="create-post btn btn-primary mt-3">Back Contents</button>
+                    </a>
                 </div>
+                @endif
             </div>
         </div>
     </div>
