@@ -24,6 +24,9 @@ class UserController extends Controller
 
     public function editStore($id)
     {
+        request()->validate([
+            'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
+        ]);
         $image = request()->file('avatar');
 
         $file = $image->getClientOriginalName();
@@ -67,24 +70,24 @@ class UserController extends Controller
         return view('users.changePassword', compact('user'));
     }
 
-    public function passwordStore($id)
+    public function passwordStore($id , MessageBag $message_bag)
     {
         // password check
-        if(request()->password){
 
-            request()->validate([
-                'password' => ['required', 'min:6', 'confirmed']
+        request()->validate([
+            // confirmed check the password and password_confirmation
+            'password' => ['required', 'min:6', 'confirmed']
+        ]);
+
+        if(Hash::check(request()->current_password, Auth::user()->password)){
+            Auth::user()->update([
+                'password' => Hash::make(request()->password)
             ]);
-
-            if(Hash::check(request()->current_password, Auth::user()->password)){
-                Auth::user()->update([
-                    'password' => Hash::make(request()->password)
-                ]);
-            } else {
-                return "incorrect password";
-            }
-            
+        } else {
+            $message_bag->add("password" ,"Incorrect Password");
+            return back()->withErrors($message_bag);
         }
+            
 
         return redirect('home');
     }
