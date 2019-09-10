@@ -54,13 +54,8 @@ class User extends Authenticatable
     }
 
     public function lessons_taken(){
-        return $this->hasMany("App\UserTakenCourse" , 'lesson_id');
+        return $this->hasMany("App\UserTakenCourse" , 'user_id');
     }
-
-    // public function course_status($id)
-    // {
-    //     return $this->lessons_taken()->where("lesson_id" , $id)->count() > 0 ? "Active" : "Not Active";
-    // }
 
     public function course_status($id)
     {
