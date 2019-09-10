@@ -45,6 +45,11 @@ h1.welcome {
     width: 200px
 }
 
+.welcome-home {
+    font-size: 2em;
+    width: 200px 
+}
+
 .welcome-login {
     font-size: 2em;
     margin-left: 10px;
@@ -90,4 +95,9 @@ h1.welcome {
 
 .editUser-inputFile {
     padding-left: 7em;
+}
+
+/* change password */
+.changePassword-error {
+    color: red;
 }
