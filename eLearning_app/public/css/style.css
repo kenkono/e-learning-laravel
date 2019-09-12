@@ -116,6 +116,18 @@ h1.welcome {
     margin-left: 10em;
 }
 
+/* lesson question */
+.answer-blue {
+    color: blue;
+}
+
+.answer-red {
+    color: red;
+}
+
+.question-correct {
+    background-color: aquamarine;
+}
 /* lesson index */
 .lesson-index-explanation {
     font-size: 1.3em;
