@@ -2,6 +2,18 @@
 
 @section('content')
 
+<div class="edit-error-sentence">
+@if ($errors->has('avatar'))
+    <h4 class="">{{$errors->first('avatar')}}</h4>
+@endif
+@if ($errors->has('name'))
+    <h4 class="">{{$errors->first('name')}}</h4>
+@endif
+@if ($errors->has('email'))
+    <h4 class="">{{$errors->first('email')}}</h4>
+@endif
+</div>
+
 <form action="/user/storeEdit/{{$user->id}}" method="POST" enctype="multipart/form-data" class="m-10">
 @csrf
     <div class="row mt-5">
@@ -30,7 +42,7 @@
         <div class="col-md-2"></div>
     </div>
     <div class="text-center">
-        <a href="/home"><button class="create-post btn btn-warning mt-3 mr-3" type="submit">Back</button></a>
+        <a href="/home" class="btn btn-warning mt-3 mr-3">Back</a>
         <button class="create-post btn btn-primary mt-3" type="submit">Edit</button>
     </div>
 </form>

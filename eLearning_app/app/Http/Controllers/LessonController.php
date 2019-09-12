@@ -40,4 +40,50 @@ class LessonController extends Controller
         return view('lessons.question', compact('lesson'));
 
     }
+
+    public function newLessons() {
+
+        return view('lessons.newLesson');
+    }
+
+    public function storeNewLessons() {
+        request()->validate([
+            'lesson_title' => ['required'],
+            'lesson_description' => ['required'],
+        ]);
+
+        $lesson = new Lesson();
+        $lesson->title = request()->lesson_title;
+        $lesson->explanation = request()->lesson_description;
+
+        $lesson->save();
+
+        return redirect('lessons');
+    }
+
+    public function edit($id) {
+        $lesson = Lesson::find($id);
+
+        return view('lessons.edit', compact('lesson'));
+    }
+
+    public function storeEdit($id) {
+        request()->validate([
+            'lesson_title' => ['required'],
+            'lesson_description' => ['required'],
+        ]);
+
+        $lesson = Lesson::find($id)->update([
+            'title' => request()->lesson_title,
+            'explanation' => request()->lesson_description,
+        ]);
+
+        return redirect('lessons');
+    }
+
+    public function delete($id) {
+        Lesson::find($id)->delete();
+        
+        return redirect('lessons');
+    }
 }

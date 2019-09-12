@@ -17,14 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::group(['middleware' => 'auth'] ,function() {
     Route::get('/home', 'HomeController@home')->name('home');
 
     Route::get('/users', 'UserController@showUsers');
-    Route::get('/user/edit/{id}', 'UserController@edit');
-    Route::post('/user/storeEdit/{id}', 'UserController@editStore');
+    Route::get('/user/edit/{id}', 'UserController@edit')->where('id' , '[0-9]+');
+    Route::post('/user/storeEdit/{id}', 'UserController@editStore')->where('id' , '[0-9]+');
     Route::get('/user/followinglist', 'UserController@showFollowing');
     Route::get('/user/followerslist', 'UserController@showFollowers');
     Route::get('/user/followinglist/{id}', 'UserController@showOtherUserFollowing');
@@ -36,6 +34,19 @@ Route::group(['middleware' => 'auth'] ,function() {
     Route::get('/user/unfollow/{id}', 'UserController@unfollow');
 
     Route::get('/lessons', 'LessonController@showLessons');
-    Route::get('/lessons/content/{id}', 'LessonController@showQuestions');
+    Route::get('/lessons/content/{id}', 'LessonController@showQuestions')->where('id' , '[0-9]+');
     Route::post('/lessons/content/answer/{id}', 'LessonController@showAnswers');
+    Route::get('/lessons/content/new', 'LessonController@newLessons');
+    Route::post('/lesson/content/storeLesson', 'LessonController@storeNewLessons');
+    Route::get('/lessons/content/{id}/edit', 'LessonController@edit');
+    Route::post('/lesson/content/{id}/store', 'LessonController@storeEdit');
+    Route::get('/lessons/content/{id}/delete', 'LessonController@delete');
+
+    Route::get('/lesson/{id}/questions', 'QuestionController@show');
+    Route::get('/lesson/{id}/questions/create', 'QuestionController@new');
+    Route::post('/lesson/{id}/questions/storeQuestion/', 'QuestionController@store');
+    Route::get('/lessons/{id}/question/edit', 'QuestionController@edit');
+    Route::post('/lesson/{id}/questions/storeEdit/', 'QuestionController@storeEdit');
+    Route::get('/lessons/{id}/question/delete', 'QuestionController@delete');
+
 });

@@ -8,6 +8,7 @@ body {
     background: -moz-linear-gradient(top, skyblue, #FFF);
     background: -webkit-linear-gradient(top, skyblue, #FFF);
     background: linear-gradient(to bottom, skyblue, #FFF);
+    min-height: 100vh;
 }
 
 h1.welcome {
@@ -66,6 +67,11 @@ h1.welcome {
     margin: 0 auto;
 }
 
+.login-default {
+    background-color: skyblue;
+    text-align: center;
+}
+
 /* home */
 
 .home-h1 {
@@ -86,6 +92,14 @@ h1.welcome {
     font-size: 2em;
 }
 
+.lesson-user {
+    min-height: 500px;
+}
+
+.home-admin-show {
+    margin-bottom: 1.3em;
+}
+
 /* edit profile */
 .editUser-avatar {
     display: flex;
@@ -95,6 +109,11 @@ h1.welcome {
 
 .editUser-inputFile {
     padding-left: 7em;
+}
+
+.edit-error-sentence {
+    color: red;
+    margin-left: 10em;
 }
 
 /* lesson question */
@@ -118,5 +137,32 @@ h1.welcome {
     font-size: 1.3em;
 /* change password */
 .changePassword-error {
+    color: red;
+}
+
+/* lesson question */
+.answer-blue {
+    color: blue;
+}
+
+.answer-red {
+    color: red;
+}
+
+.question-correct-answer {
+    font-size: 1.2em;
+}
+
+.explanation-block {
+    background-color: skyblue;
+}
+
+/* password page */
+.changePassword-error-message {
+    color: red;
+}
+
+/* edit and new lesson */
+.new-lesson-error-sentence {
     color: red;
 }

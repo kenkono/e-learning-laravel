@@ -7,22 +7,21 @@
             <div class="col-sm-12">
             @if(Auth::user()->is_admin)
             <div class="m-2">
-                <a href="/lessons/content/new" class="btn btn-primary">Create New Lesson</a>
+                <a href="/lesson/{{ $lesson->id }}/questions/create" class="btn btn-primary">Add Question</a>
+                <a href="/lessons" class="btn btn-warning">Back</a>
             </div>
             @endif
-            @foreach($lessons as $lesson)
+            @foreach($lesson->questions as $index => $question)
                 <div class="card">
                     <div class="card-body">
                         <div class="text-left">
-                            <h1>{{$lesson->title}}</h1>
-                            <p class="lesson-index-explanation">{{$lesson->explanation}}</p>
+                            <h1>Question #{{$index + 1}}</h1>
+                            <p>{{$question->question}}</p>
                             <div class="text-right">
                                 <p>
-                                    <a href="/lessons/content/{{$lesson->id}}" class="btn btn-primary">Learn</a>
-                                    <a href="/lesson/{{$lesson->id}}/questions" class="btn btn-secondary">Show Question</a>
                                     @if(Auth::user()->is_admin)
-                                    <a href="/lessons/content/{{$lesson->id}}/edit" class="btn btn-success">Edit</a>
-                                    <a href="/lessons/content/{{$lesson->id}}/delete" class="btn btn-danger">Delete</a>
+                                    <a href="/lessons/{{$question->id}}/question/edit" class="btn btn-success">Edit</a>
+                                    <a href="/lessons/{{$question->id}}/question/delete" class="btn btn-danger">Delete</a>
                                     @endif
                                 </p>
                             </div>
