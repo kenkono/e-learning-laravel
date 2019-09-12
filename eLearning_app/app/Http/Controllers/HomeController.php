@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Lesson;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('home');
+        $lessons = Lesson::all();
+
+        return view('home', compact('lessons'));
     }
 }

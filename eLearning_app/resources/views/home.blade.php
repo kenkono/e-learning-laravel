@@ -2,9 +2,10 @@
 
 @section('content')
 <div class="container">
+
     <div class="row">
         <!-- user profile -->
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div class="card user-profile">
                 <div class="card-body">
                     <div class="text-center">
@@ -41,53 +42,31 @@
         </div>
 
         <!-- contents -->
-        <div class="col-sm-8">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
                     <div class="text-center">
                         <h1 class="home-h1">Learning contents</h1>
+                        
+                        @foreach($lessons as $lesson)
                         <div class="card home-lessons">
                             <div class="card-body">
                                 <div class="text-center">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="home-details">Manner</div>
+                                            <div class="home-details">{{$lesson->title}}</div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="home-details">1/5</div>
+                                            <div class="home-details btn-warning">
+                                                {{Auth::user()->course_status($lesson->id)}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card home-lessons">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="home-details">Manner</div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="home-details">1/5</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card home-lessons">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="home-details">Manner</div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="home-details">1/5</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                         <p><a href="/lessons" class="btn btn-primary home-selectContents">Select Contents</a></p>
                     </div>
                 </div>    

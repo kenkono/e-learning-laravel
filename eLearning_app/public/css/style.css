@@ -45,6 +45,11 @@ h1.welcome {
     width: 200px
 }
 
+.welcome-home {
+    font-size: 2em;
+    width: 200px 
+}
+
 .welcome-login {
     font-size: 2em;
     margin-left: 10px;
@@ -54,6 +59,11 @@ h1.welcome {
 .welcome-sentece-1 {
     font-size: 2.5em;
     text-align: center;
+}
+
+/* login */
+.login-email {
+    margin: 0 auto;
 }
 
 /* home */
@@ -98,4 +108,15 @@ h1.welcome {
 
 .question-correct {
     background-color: aquamarine;
+}
+/* lesson index */
+.lesson-index-explanation {
+    font-size: 1.3em;
+}
+
+.question-show {
+    font-size: 1.3em;
+/* change password */
+.changePassword-error {
+    color: red;
 }

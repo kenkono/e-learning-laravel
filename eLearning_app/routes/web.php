@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'] ,function() {
     Route::post('/user/storeEdit/{id}', 'UserController@editStore');
     Route::get('/user/followinglist', 'UserController@showFollowing');
     Route::get('/user/followerslist', 'UserController@showFollowers');
+    Route::get('/user/followinglist/{id}', 'UserController@showOtherUserFollowing');
+    Route::get('/user/followerslist/{id}', 'UserController@showOtherUserFollowers');
     Route::get('/user/edit/password/{id}', 'UserController@changePassword');
     Route::post('/user/storePassword/{id}', 'UserController@passwordStore');
     Route::get('/user/profile/{id}', 'UserController@showUser');

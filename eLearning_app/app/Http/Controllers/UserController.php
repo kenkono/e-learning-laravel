@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Lesson;
 
 class UserController extends Controller
 {
@@ -22,6 +23,9 @@ class UserController extends Controller
 
     public function editStore($id)
     {
+        request()->validate([
+            'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
+        ]);
         $image = request()->file('avatar');
 
         $file = $image->getClientOriginalName();
@@ -48,35 +52,56 @@ class UserController extends Controller
         return view('users.followerslist', compact('users'));
     }
 
+    public function showOtherUserFollowing($id){
+        $users = User::find($id)->following()->paginate(10);
+
+        return view('users.followinglistOther', compact('users'));
+    }
+
+    public function showOtherUserFollowers($id){
+        $users = User::find($id)->followers()->paginate(10);
+        return view('users.followerslistOther', compact('users'));
+    }
+
     public function changePassword($id) {
         $user = User::find($id);
 
         return view('users.changePassword', compact('user'));
     }
 
-    public function passwordStore($id)
+    public function passwordStore($id , MessageBag $message_bag)
     {
         // password check
-        if(request()->password){
-            request()->validate([
-                'password' => ['required', 'min:6', 'confirmed']
+
+        request()->validate([
+            // confirmed check the password and password_confirmation
+            'password' => ['required', 'min:6', 'confirmed']
+        ]);
+
+        if(Hash::check(request()->current_password, Auth::user()->password)){
+            Auth::user()->update([
+                'password' => Hash::make(request()->password)
             ]);
-            if(Hash::check(request()->current_password, Auth::user()->password)){
-                Auth::user()->update([
-                    'password' => Hash::make(request()->password)
-                ]);
-            } else {
-                return "incorrect password";
-            }
-            
+        } else {
+            $message_bag->add("password" ,"Incorrect Password");
+            return back()->withErrors($message_bag);
         }
+            
+
         return redirect('home');
     }
 
     public function showUser($id)
     {     
         $user = User::find($id);
-        return view('users.userinfo', compact('user'));
+        $lessons = Lesson::all();
+
+        if($user == Auth::user()) {
+            return view('home', compact('lessons'));
+        } else {
+            return view('users.userinfo', compact('user', 'lessons'));
+        }
+        
     }
 
     public function follow($id) {

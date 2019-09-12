@@ -32,11 +32,11 @@
 
                         <div class="row mt-15">
                             <div class="col-sm-6">
-                                <strong><a href="#">{{ $user->following()->count() }}</a></strong>
+                                <strong><a href="/user/followinglist/{{ $user->id }}">{{ $user->following()->count() }}</a></strong>
                                 <div>following</div>
                             </div>
                                 <div class="col-sm-6">
-                                    <strong><a href="#">{{ $user->followers()->count() }}</a></strong>
+                                    <strong><a href="/user/followerslist/{{ $user->id }}">{{ $user->followers()->count() }}</a></strong>
                                 <div>followers</div>
                             </div>
                         </div>
@@ -51,49 +51,26 @@
                 <div class="card-body">
                     <div class="text-center">
                         <h1 class="home-h1">Learning contents</h1>
+                        
+                        @foreach($lessons as $lesson)
                         <div class="card home-lessons">
                             <div class="card-body">
                                 <div class="text-center">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="home-details">Manner</div>
+                                            <div class="home-details">{{$lesson->title}}</div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="home-details">1/5</div>
+                                            <div class="home-details btn-warning">
+                                                {{$user->course_status($lesson->id)}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card home-lessons">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="home-details">Manner</div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="home-details">1/5</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card home-lessons">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="home-details">Manner</div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="home-details">1/5</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <p><a href="/lessons" class="btn btn-primary home-selectContents">Select Contents</a></p> -->
+                        @endforeach
+
                     </div>
                 </div>    
             </div>

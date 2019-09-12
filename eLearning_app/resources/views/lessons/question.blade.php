@@ -10,10 +10,10 @@
                 @csrf
                     @foreach($lesson->questions as $question)
                         @isset($question->correct)
-                        <div class="card bg-secondary text-white">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="text-left">
-                                    <h4>The Correct Answer is : {{$question->correct}}</h4>
+                                    <p>The Correct Answer is : {{$question->correct}}</p>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-left"> 
-                                            <h5>{{$question->explanations->explanation}}</h5>
+                                            <p>{{$question->explanations->explanation}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -60,8 +60,17 @@
                         <button class="create-post btn btn-primary mt-3" type="submit">Submit</button>
                     </div>
                     @endif
-
                 </form>
+                @isset($question->correct)
+                <div class="text-right">
+                    <a href="/home">
+                        <button class="create-post btn btn-warning mt-3 mr-3" type="submit">HOME</button>
+                    </a>
+                    <a href="/lessons">
+                        <button class="create-post btn btn-primary mt-3">Back Contents</button>
+                    </a>
+                </div>
+                @endif
             </div>
         </div>
     </div>

@@ -41,6 +41,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'followers', 'follower_id', 'followed_id');
     }
 
+
     public function followers() {
         return $this->belongsToMany('App\User', 'followers', 'followed_id', 'follower_id');
     }
@@ -51,5 +52,14 @@ class User extends Authenticatable
         } else {
             return false;
         }
+    }
+
+    public function lessons_taken(){
+        return $this->belongsToMany("App\Lesson" , "userTakenCourses");
+    }
+
+    public function course_status($id)
+    {
+        return $this->lessons_taken()->where("lesson_id" , $id)->count() > 0 ? "Active" : "Not Active";
     }
 }
