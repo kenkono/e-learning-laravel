@@ -30,6 +30,11 @@ class UserController extends Controller
             'name' => ['required'],
             'email' => ['required'],
         ]);
+            'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
+        ]);
+        $image = request()->file('avatar');
+
+        $file = $image->getClientOriginalName();
 
         if(request()->avatar) {
             request()->validate([

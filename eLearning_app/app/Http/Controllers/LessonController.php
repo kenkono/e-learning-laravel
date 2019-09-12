@@ -46,6 +46,7 @@ class LessonController extends Controller
             $question->user_answer = $user_answer;
         }
         return view('lessons.question', compact('lesson'));
+
     }
 
     public function newLessons() {
