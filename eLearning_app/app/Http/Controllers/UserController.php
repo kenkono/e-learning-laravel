@@ -30,6 +30,11 @@ class UserController extends Controller
             'name' => ['required'],
             'email' => ['required'],
         ]);
+            'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
+        ]);
+        $image = request()->file('avatar');
+
+        $file = $image->getClientOriginalName();
 
         if(request()->avatar) {
             request()->validate([
@@ -81,6 +86,8 @@ class UserController extends Controller
 
     public function passwordStore($id , MessageBag $message_bag)
     {
+        // password check
+
         request()->validate([
             // confirmed check the password and password_confirmation
             'password' => ['required', 'min:6', 'confirmed']
