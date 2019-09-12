@@ -166,3 +166,8 @@ h1.welcome {
 .new-lesson-error-sentence {
     color: red;
 }
+
+/* delete function */
+.modal-footer {
+    justify-content: center;
+}

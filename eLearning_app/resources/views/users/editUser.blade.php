@@ -14,7 +14,7 @@
 @endif
 </div>
 
-<form action="/user/storeEdit/{{$user->id}}" method="POST" enctype="multipart/form-data" class="m-10">
+<form action="/user/store/edit/{{$user->id}}" method="POST" enctype="multipart/form-data" class="m-10">
 @csrf
     <div class="row mt-5">
         <div class="col-md-4">
