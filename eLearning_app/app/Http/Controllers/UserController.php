@@ -86,8 +86,6 @@ class UserController extends Controller
 
     public function passwordStore($id , MessageBag $message_bag)
     {
-        // password check
-
         request()->validate([
             // confirmed check the password and password_confirmation
             'password' => ['required', 'min:6', 'confirmed']
