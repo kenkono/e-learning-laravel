@@ -54,4 +54,26 @@ class User extends Authenticatable
         }
     }
 
+    public function lessons_taken(){
+        return $this->hasMany("App\UserTakenCourse" , 'user_id');
+    }
+
+    public function course_status($id)
+    {
+        $lesson_taken = $this->lessons_taken()->where('lesson_id' , $id)->latest('created_at')->first();
+
+        if($lesson_taken){
+            $correct = 0;
+            
+            foreach ($lesson_taken->userAnswers as $answer) {
+                if($answer->choice_id == $answer->question->answer_id){
+                    $correct++;
+                }
+            }
+            
+            return 'Result '.$correct.' / '.$lesson_taken->userAnswers->count();
+        }else{
+            return "Not Active";
+        }
+    }
 }

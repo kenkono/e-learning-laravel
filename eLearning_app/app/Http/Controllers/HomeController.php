@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Lesson;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('home');
+        $user = Auth::user();
+        $lessons = Lesson::paginate(3);
+
+        return view('home', compact('user', 'lessons'));
     }
 }
