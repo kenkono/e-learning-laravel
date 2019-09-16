@@ -29,12 +29,7 @@ class UserController extends Controller
         request()->validate([
             'name' => ['required', 'max:255'],
             'email' => ['required', 'max:255'],
-            'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
         ]);
-
-        $image = request()->file('avatar');
-
-        $file = $image->getClientOriginalName();
 
         if(request()->avatar) {
             request()->validate([
