@@ -30,7 +30,7 @@ class QuestionController extends Controller
         foreach($request->choices as $key => $choice) {
             $data = ['choice' => $choice];
             Validator::make($data,[
-                'choice' => ['required'],
+                'choice' => ['required', 'max:255'],
             ])->validate();
         }
 
@@ -69,7 +69,7 @@ class QuestionController extends Controller
         foreach($request->choices as $key => $choice) {
             $data = ['choice' => $choice];
             Validator::make($data,[
-                'choice' => ['required'],
+                'choice' => ['required', 'max:255'],
             ])->validate();
         }
 

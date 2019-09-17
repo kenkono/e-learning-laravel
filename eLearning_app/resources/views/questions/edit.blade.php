@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <div class="new-lesson-error-sentence">
+        <div class="new-lesson-error-sentence" style="color:red;">
             @if ($errors->has('question'))
                 <h4>{{$errors->first('question')}}</h4>
             @endif

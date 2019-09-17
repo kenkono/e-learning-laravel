@@ -24,8 +24,8 @@ class LessonRequest extends FormRequest
     public function rules()
     {
         return [
-            'lesson_title' => ['required'],
-            'lesson_description' => ['required'],
+            'lesson_title' => ['required', 'max:255'],
+            'lesson_description' => ['required', 'max:255'],
         ];
     }
 }
