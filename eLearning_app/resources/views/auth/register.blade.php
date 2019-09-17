@@ -63,9 +63,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                                <input type="submit" class="btn btn-primary" value="Register" onclick="this.disabled=true;this.value='Sending Information';this.form.submit()">
                             </div>
                         </div>
                     </form>
