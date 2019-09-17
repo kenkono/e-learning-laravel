@@ -56,7 +56,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="/home" class="nav-link">{{ Auth::user()->name }}</a>
+                                <a href="/home" class="nav-link">{{ str_limit(Auth::user()->name, 10) }}</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/user" class="nav-link">ALL USERS</a>
