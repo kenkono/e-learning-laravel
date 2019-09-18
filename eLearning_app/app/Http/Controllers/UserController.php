@@ -27,14 +27,9 @@ class UserController extends Controller
     public function editStore($id)
     {
         request()->validate([
-            'name' => ['required'],
-            'email' => ['required'],
-            'avatar' => ['required', 'file', 'image', 'mimes:jpeg,png']
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'max:255'],
         ]);
-
-        $image = request()->file('avatar');
-
-        $file = $image->getClientOriginalName();
 
         if(request()->avatar) {
             request()->validate([
