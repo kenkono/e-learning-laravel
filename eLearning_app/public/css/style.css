@@ -135,6 +135,7 @@ h1.welcome {
 
 .question-show {
     font-size: 1.3em;
+}
 /* change password */
 .changePassword-error {
     color: red;
