@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'] ,function() {
+Route::group(['middleware' => ['auth', 'revalidate']  ] ,function() {
     Route::get('/home', 'HomeController@home')->name('home');
 
     // user function
