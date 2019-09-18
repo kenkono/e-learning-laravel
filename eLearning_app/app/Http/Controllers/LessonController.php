@@ -26,18 +26,22 @@ class LessonController extends Controller
 
     public function showAnswers($id) {
 
-        // user activity
-        $courseTaken = Auth::user()->lessons_taken()->create([
-            'user_id' => Auth::user()->id,
-            'lesson_id' => $id
-        ]);
-
         $answers = request()->question;
         $lesson = Lesson::with(["questions" , "questions.choices"])->find($id);
         $total = 0;
         $answer = 0;
 
-        foreach($lesson->questions as $question){
+        request()->validate([
+            'question' => ['required', 'array', 'size:'.$lesson->questions->count()]
+        ]);
+
+         // user activity
+         $courseTaken = Auth::user()->lessons_taken()->create([
+            'user_id' => Auth::user()->id,
+            'lesson_id' => $id
+        ]);
+
+        foreach($lesson->questions as $question){ 
             $total++;
             // the number of correct answer
             $user_answer = $answers[$question->id];

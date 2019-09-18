@@ -6,6 +6,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1>{{$lesson->title}}</h1>
+                <div class="new-lesson-error-sentence">
+                    @if ($errors->has('question'))
+                    <h4 class="new-lesson-error-sentence">{{$errors->first('question')}}</h4>
+                    @endif
+                </div>
                 <form action="/lesson/content/answer/{{$lesson->id}}" method="POST" class="m-10">
                 @csrf
                     @foreach($lesson->questions as $index => $question)
