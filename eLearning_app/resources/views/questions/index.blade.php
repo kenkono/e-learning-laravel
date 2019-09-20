@@ -10,6 +10,10 @@
                 <a href="/lesson/{{ $lesson->id }}/questions/create" class="btn btn-primary">Add Question</a>
                 <a href="/lesson" class="btn btn-warning">Back</a>
             </div>
+            @else
+            <div class="m-2">
+                <a href="/lesson" class="btn btn-warning">Back</a>
+            </div>
             @endif
             @foreach($lesson->questions as $index => $question)
                 <div class="card">
