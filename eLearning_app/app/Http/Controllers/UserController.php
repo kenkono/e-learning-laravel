@@ -27,8 +27,8 @@ class UserController extends Controller
     public function editStore($id)
     {
         request()->validate([
-            'name' => ['required', 'max:255'],
-            'email' => ['required', 'max:255'],
+            'name' => ['required', 'max:255', 'unique:users,name,'.auth()->user()->id],
+            'email' => ['required', 'max:255', 'unique:users,email,'.auth()->user()->id],
         ]);
 
         if(request()->avatar) {
