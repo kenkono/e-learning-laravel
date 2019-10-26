@@ -1,7 +1,7 @@
 # e-learning-laravel
 
 ## URL
-https://todo-list.dynamo-tech.com/  
+https://ken-elearning.herokuapp.com/
 Select `Login` and enter `Login`(Just push because already put default value).  
 Default(admin): email->`test1@test.com`, password->`hogehoge`  
 
